@@ -6,7 +6,7 @@
   $: {
     let temp = "";
     let unknown: string = null;
-    let cleansed = inputValue.replace(/[, ]/g, "").toUpperCase();
+    let cleansed = inputValue.replace(/[\s,]/g, "").toUpperCase();
     for (let i = 0; i < cleansed.length; i += 3) {
       let key = cleansed.slice(i, i + 3);
       let new_char = gene_map[key];
@@ -14,7 +14,7 @@
         unknown = key;
         break;
       }
-      temp += new_char;
+      temp += new_char + " ";
     }
     output = temp ? temp : "Start typing...";
     if (unknown !== null) {
